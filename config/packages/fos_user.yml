@@ -4,7 +4,7 @@ fos_user:
     firewall_name: main
     service:
         mailer: fos_user.mailer.noop
-    user_class: AppBundle\Entity\User
+    user_class: App\Entity\User
     from_email:
         address: "as@asd.com"
         sender_name: "as@asd.com"

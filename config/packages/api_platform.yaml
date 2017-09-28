@@ -2,3 +2,65 @@ api_platform:
     enable_fos_user: true
     mapping:
         paths: ['%kernel.project_dir%/src/Entity']
+    collection:
+        # The default order of results.
+        order: 'ASC'
+
+        # The name of the query parameter to order results.
+        order_parameter_name: 'order'
+
+        pagination:
+            # To enable or disable pagination for all resource collections by default.
+            enabled: true
+
+            # To allow the client to enable or disable the pagination.
+            client_enabled: false
+
+            # To allow the client to set the number of items per page.
+            client_items_per_page: false
+
+            # The default number of items per page.
+            items_per_page: 25
+
+            # The maximum number of items per page.
+            maximum_items_per_page: 50
+
+            # The default name of the parameter handling the page number.
+            page_parameter_name: 'page'
+
+            # The name of the query parameter to enable or disable pagination.
+            enabled_parameter_name: 'pagination'
+
+            # The name of the query parameter to set the number of items per page.
+            items_per_page_parameter_name: 'itemsPerPage'
+
+    eager_loading:
+        # To enable or disable eager loading.
+        enabled: true
+
+        # Fetch only partial data according to serialization groups.
+        # If enabled, Doctrine ORM entities will not work as expected if any of the other fields are used.
+        fetch_partial: false
+
+        # Max number of joined relations before EagerLoading throws a RuntimeException.
+        max_joins: 30
+
+        # Force join on every relation.
+        # If disabled, it will only join relations having the EAGER fetch mode.
+        force_eager: true
+
+    http_cache:
+        # Automatically generate etags for API responses.
+        etag: true
+
+        # Default value for the response max age.
+        max_age: 3600
+
+        # Default value for the response shared (proxy) max age.
+        shared_max_age: 600
+
+        # Default values of the "Vary" HTTP header.
+        vary: ['Accept']
+
+        # To make all responses public by default.
+        public: ~
