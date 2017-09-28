@@ -1,0 +1,10 @@
+# app/config/config.yml
+fos_user:
+    db_driver: orm # other valid values are 'mongodb' and 'couchdb'
+    firewall_name: main
+    service:
+        mailer: fos_user.mailer.noop
+    user_class: AppBundle\Entity\User
+    from_email:
+        address: "as@asd.com"
+        sender_name: "as@asd.com"
