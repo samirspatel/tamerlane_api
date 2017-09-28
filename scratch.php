@@ -1,0 +1,2 @@
+INSERT INTO animal (name, tag, origin, birth_date, intake_date, condition, photo_url, notes)
+[\"max\", \"asd\", \"asd\", \"2017-09-28 02:52:23\", \"2017-09-28 02:52:23\", \"adas\", \"asd\", \"asdasd\"]
