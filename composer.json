@@ -5,6 +5,7 @@
         "php": "^7.0.8",
         "api-platform/api-pack": "^1.0",
         "friendsofsymfony/user-bundle": "^2.0",
+        "lexik/jwt-authentication-bundle": "^2.4",
         "swiftmailer/swiftmailer": "^6.0",
         "symfony/flex": "^1.0",
         "symfony/framework-bundle": "^3.3",

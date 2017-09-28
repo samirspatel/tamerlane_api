@@ -22,28 +22,28 @@ class User extends BaseUser
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @Groups({"user"})
      */
-    private $email;
+    protected $email;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Groups({"user"})
      */
-    private $fullName;
+    protected $fullName;
 
     /**
      * @Groups({"user-write"})
      */
-    private $plainPassword;
+    protected $plainPassword;
 
     /**
      * @Groups({"user"})
      */
-    private $username;
+    protected $username;
 
     /**
      * @return mixed
