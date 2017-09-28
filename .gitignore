@@ -6,3 +6,7 @@
 ###< symfony/framework-bundle ###
 .idea
 .idea/emacs.xml
+
+###> symfony/web-server-bundle ###
+.web-server-pid
+###< symfony/web-server-bundle ###
