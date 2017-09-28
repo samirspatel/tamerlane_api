@@ -7,6 +7,8 @@ use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as BaseUser;
 use FOS\UserBundle\Model\UserInterface;
 use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity
@@ -14,6 +16,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
  *     "normalization_context"={"groups"={"user", "user-read"}},
  *     "denormalization_context"={"groups"={"user", "user-write"}}
  * })
+ * @UniqueEntity(fields={"email","username"}, message="It looks like your already have an account!")
  */
 class User extends BaseUser
 {
@@ -26,12 +29,15 @@ class User extends BaseUser
 
     /**
      * @Groups({"user"})
+     * @Assert\NotBlank()
+     * @Assert\Email()
      */
     protected $email;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Groups({"user"})
+     * @Assert\NotBlank()
      */
     protected $fullName;
 
@@ -42,8 +48,16 @@ class User extends BaseUser
 
     /**
      * @Groups({"user"})
+     * @Assert\NotBlank()
      */
     protected $username;
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->addRole(UserInterface::ROLE_DEFAULT);
+        $this->setEnabled(true);
+    }
 
     /**
      * @return mixed
